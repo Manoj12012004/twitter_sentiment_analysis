@@ -1,0 +1,99 @@
+[2025-04-25 18:19:22,375] 23 root - INFO - Entered the data ingestion method
+[2025-04-25 18:19:22,590] 27 root - INFO - Read the dataset as dataframe
+[2025-04-25 18:19:22,824] 32 root - INFO - Train test split initiated
+[2025-04-25 18:19:23,119] 38 root - INFO - Ingestion of data is completed
+[2025-04-25 18:19:23,790] 73 root - INFO - Sample cleaned text: 0                       im getting borderlands murder 
+1    mercy  ambarkortiz mad making pocket bastion l...
+2    must say every moment fun breakpoint serves le...
+3    business awesomecapital  johnson  meyer johnso...
+4     also finally found flamethrower clicked scoco...
+Name: Cleaned, dtype: object
+[2025-04-25 18:19:23,798] 79 root - INFO -       ID                Entity Sentiment                                            Content                                            Cleaned  S_label
+0   2401           Borderlands  Positive  im getting on borderlands and i will murder yo...                     im getting borderlands murder         3
+1   9472             Overwatch   Neutral  My mercy @ AmbarKOrtiz was SO mad at me for ma...  mercy  ambarkortiz mad making pocket bastion l...        2
+2  11054  TomClancysGhostRecon  Positive  I must say that for every moment of fun I have...  must say every moment fun breakpoint serves le...        3
+3   7116       johnson&johnson   Neutral  Business AwesomeCapital : Johnson & Meyer John...  business awesomecapital  johnson  meyer johnso...        2
+4   1446           Battlefield  Positive  3 Here there it also is! As I finally found th...   also finally found flamethrower clicked scoco...        3
+[2025-04-25 18:19:23,818] 80 root - INFO - Missing values: ID           0
+Entity       0
+Sentiment    0
+Content      0
+Cleaned      0
+S_label      0
+dtype: int64
+[2025-04-25 18:19:23,984] 93 root - INFO - Sample cleaned text: 0                       im getting borderlands murder 
+1    went go georges room find door locked climbed ...
+2                   yo looks lit teamgooverwatch combo
+3    pay attention executive administrators stores ...
+4    guy looked says name put throw list lmaoooo ge...
+Name: Cleaned, dtype: object
+[2025-04-25 18:19:23,987] 99 root - INFO -      ID       Entity   Sentiment                                            Content                                            Cleaned  S_label
+0  2401  Borderlands    Positive  im getting on borderlands and i will murder yo...                     im getting borderlands murder         3
+1  6792     Fortnite  Irrelevant  went to go in george's room to find his door w...  went go georges room find door locked climbed ...        0
+2  4115        CS-GO    Positive         Yo this looks LIT! Team:GO/Overwatch combo                 yo looks lit teamgooverwatch combo        3
+3  5665    HomeDepot    Negative  Pay attention executive administrators. While ...  pay attention executive administrators stores ...        1
+4  9369    Overwatch  Irrelevant  Guy looked at me and says my name was put on t...  guy looked says name put throw list lmaoooo ge...        0
+[2025-04-25 18:19:23,993] 100 root - INFO - Missing values: ID           0
+Entity       0
+Sentiment    0
+Content      0
+Cleaned      0
+S_label      0
+dtype: int64
+[2025-04-25 18:19:23,993] 28 root - INFO - Data Transformation initiated
+[2025-04-25 18:19:23,993] 47 root - INFO - Data Transformation is completed
+[2025-04-25 18:19:26,310] 114 root - INFO - Transformed feature matrix shape: <Compressed Sparse Row sparse matrix of dtype 'float64'
+	with 541692 stored elements and shape (59210, 5000)>
+  Coords	Values
+  (0, 2207)	0.27846126288928574
+  (0, 1814)	0.371686216478709
+  (0, 462)	0.3592873478571414
+  (0, 2902)	0.5840836022379476
+  (0, 2217)	0.5604173701950815
+  (1, 2778)	0.3357511060941487
+  (1, 2681)	0.2609521052364425
+  (1, 2706)	0.22893607522922862
+  (1, 3368)	0.3588389352575963
+  (1, 2610)	0.21807937633356916
+  (1, 4132)	0.7176778705151926
+  (1, 985)	0.27455044221744745
+  (2, 2904)	0.3330632230235006
+  (2, 3842)	0.26983403598475814
+  (2, 1390)	0.2595616933359643
+  (2, 2857)	0.35448983332347295
+  (2, 1694)	0.2511357568173247
+  (2, 493)	0.34304845628002434
+  (2, 2507)	0.33700929399041335
+  (2, 1299)	0.45860867483630585
+  (2, 2858)	0.34434659187639655
+  (3, 544)	0.6818359620198482
+  (3, 2365)	0.5314425630888072
+  (3, 2849)	0.41729233416728834
+  (3, 771)	0.28024209333946126
+  :	:
+  (59207, 3228)	0.3354054037450992
+  (59207, 4863)	0.6434757802595028
+  (59208, 462)	0.21556065662058552
+  (59208, 1940)	0.19937863485120277
+  (59208, 1852)	0.2040158877250019
+  (59208, 4943)	0.23427840334687622
+  (59208, 1757)	0.19997108783175485
+  (59208, 2861)	0.24351268152072666
+  (59208, 4255)	0.2848399024504355
+  (59208, 4392)	0.2850194742811981
+  (59208, 1842)	0.2926659358650797
+  (59208, 46)	0.2289500244078435
+  (59208, 636)	0.34176594070950356
+  (59208, 3575)	0.38870936542883483
+  (59208, 3272)	0.38684077485753976
+  (59209, 1692)	0.2844228762048094
+  (59209, 4176)	0.20983989171431525
+  (59209, 2866)	0.2919559709548649
+  (59209, 4806)	0.2764408106625298
+  (59209, 2695)	0.3157610489412822
+  (59209, 318)	0.2827142795884566
+  (59209, 4532)	0.31456553331640846
+  (59209, 1372)	0.31316994865655573
+  (59209, 4507)	0.4139426245227501
+  (59209, 3427)	0.40670043614442564
+[2025-04-25 18:19:37,241] 122 root - INFO - Saved preprocessor
