@@ -5,12 +5,14 @@ from sklearn.pipeline import Pipeline
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.compose import ColumnTransformer
 import sys
+from sklearn.preprocessing import MaxAbsScaler
 from src.exception import CustomException
 from src.logger import logging
 from src.utils import save_object
 import os
 from dataclasses import dataclass
 import re
+from scipy import sparse as sp
 
 @dataclass
 class DataTransformationConfig:
@@ -33,7 +35,8 @@ class DataTransformation:
             # Define the pipeline to apply TfidfVectorizer
             pipeline = Pipeline(
                 steps=[
-                    ("vectorizer", TfidfVectorizer(ngram_range=(1, 2), max_features=5000))
+                    ("vectorizer", TfidfVectorizer(ngram_range=(1, 2), max_features=5000)),
+                    ('scaler',MaxAbsScaler())
                 ]
             )
 
@@ -113,10 +116,13 @@ class DataTransformation:
 
             logging.info(f"Transformed feature matrix shape: {input_feature_train_arr}")
             
-            train_arr = np.c_[input_feature_train_arr.toarray().astype(np.float32), np.array(target_feature_train_df).reshape(-1, 1).astype(np.float32)]
-            test_arr = np.c_[input_feature_test_arr.toarray().astype(np.float32), np.array(target_feature_test_df).reshape(-1,1).astype(np.float32)]
-            
+            train_arr = sp.hstack([input_feature_train_arr, np.array(target_feature_train_df).reshape(-1, 1)])
+            test_arr = sp.hstack([input_feature_test_arr, np.array(target_feature_test_df).reshape(-1, 1)])
 
+            logging.info(f'trained arr:{train_arr.shape}')
+            logging.info(f'trained arr:{test_arr.shape}')
+            arr = input_feature_train_arr
+            logging.info(f"Scaled matrix stats: Min={arr.data.min():.4f}, Max={arr.data.max():.4f}, Mean={arr.data.mean():.4f}, Shape={arr.shape}")
             # Optionally save the preprocessor object
             save_object(self.data_transformation_config.preprocessor_obj_file, p_obj)
             logging.info("Saved preprocessor")

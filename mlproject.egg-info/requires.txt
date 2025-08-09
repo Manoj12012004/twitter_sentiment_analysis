@@ -1,7 +1,5 @@
 pandas
 numpy
 scikit-learn
-matplotlib
-seaborn
-tensorflow
-keras
+nltk
+dill
